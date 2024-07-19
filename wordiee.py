@@ -1,26 +1,34 @@
+# Author: Ishita Agarwal
+
+# Importing Libraries
 import random
 import sys
 import pygame
 from list import *
 
+# Initiating pygame and game window
 pygame.init()
 screen = pygame.display.set_mode((700, 700))
 pygame.display.set_caption("Guess the Word!")
 
+# Loading background image
 bgimg = pygame.image.load("small python projects/Games/guess_the_word/bg.jpg").convert()
 bgimg = pygame.transform.scale(bgimg, (700, 1245))
 
+# Creating a translucent rectangle on the screen for better visibility
 def create_transparent_rect(width, height, color, alpha):
     rect_surf = pygame.Surface((width, height), pygame.SRCALPHA)
     rect_surf.fill((*color, alpha))
     return rect_surf
 
+# Function for displaying text in the game
 def display_text(text, x, y, size):
     font = pygame.font.SysFont(None, size)
     text_surface = font.render(text, True, (255, 255, 255))
     text_rect = text_surface.get_rect(center=(x, y))
     screen.blit(text_surface, text_rect)
 
+# Function for displaying instructions in the beginning of the game
 def display_instructions():
     screen.blit(bgimg, (0, 0))
 
@@ -50,6 +58,7 @@ def display_instructions():
     pygame.display.flip()
     wait_for_key()
 
+# Function for making the game wait, until the user signals to move ahead by pressing a key
 def wait_for_key():
     while True:
         for event in pygame.event.get():
@@ -59,6 +68,7 @@ def wait_for_key():
             elif event.type == pygame.KEYDOWN:
                 return 
 
+# Function to choose a word and its hint randomly from the list.py file
 def choose_word(used_words):
     available_words = [word for word in words if word not in used_words]
     if not available_words:
@@ -69,6 +79,7 @@ def choose_word(used_words):
     used_words.add(chosen_one)
     return chosen_one, hint
 
+# Function to compare and check the guess made by user with the chosen word
 def check_guess(chosen_one, guess, result):
     chosen_one_list = list(chosen_one)
     new_result = list(result)
@@ -87,6 +98,7 @@ def check_guess(chosen_one, guess, result):
 
     return new_result
 
+# Funtion to get the user's input for the guess
 def get_user_guess(num, num2, num3, chosen_one, result, attempt, hint):
     guess = ""
     while True:
@@ -133,10 +145,13 @@ def get_user_guess(num, num2, num3, chosen_one, result, attempt, hint):
         display_text(guess, 350, 550, 50)
         pygame.display.flip()
 
+# Main game looping function
 def play_game():
     global round_go
     round_go = 0
     used_words = set()
+    display_instructions()
+    
     while True:
         round_go += 1
         cleared = False
@@ -258,5 +273,6 @@ def play_game():
             pygame.display.flip()
             wait_for_key()
 
-display_instructions()
+
+
 play_game()
