@@ -12,7 +12,7 @@ screen = pygame.display.set_mode((700, 700))
 pygame.display.set_caption("Guess the Word!")
 
 # Loading background image
-bgimg = pygame.image.load("small python projects/Games/guess_the_word/bg.jpg").convert()
+bgimg = pygame.image.load("bg.jpg").convert()
 bgimg = pygame.transform.scale(bgimg, (700, 1245))
 
 # Creating a translucent rectangle on the screen for better visibility
