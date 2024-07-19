@@ -17,4 +17,12 @@ Can be changed according to the use and purpose. <br/>
  <br/> 
 **bg.jpg**  <br/> 
 This is the background image used in the game, after being blurred and scaled.  <br/> 
-Can be changed according to use and purpose.
+Can be changed according to use and purpose.  <br/> 
+ <br/> 
+**How To Play The Game**  <br/> 
+1. Guess the word, using the hints shown on the screen to clear the game.  <br/> 
+2. Upper case letters denote, correct letters at correct position. <br/> 
+3. Lower case letters denote, correct letters at incorrect position. <br/> 
+4. Underscores (_) denote incorrect letters. <br/>
+5. You have only 3 attempts for a particular word. <br/> 
+6. Press any key to continue, after you clear a particular round or finish your attempts. <br/> 
